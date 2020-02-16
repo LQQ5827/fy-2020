@@ -12,8 +12,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
  */
 //@JsonInclude(JsonInclude.Include.NON_EMPTY)  返回去除空字段的值
 public class ServerResponse<T> {
-    private int status;
-    private String msg;
+    private int status; //状态
+    private String msg; //错误信息
     private T data;
 
     private ServerResponse(){}

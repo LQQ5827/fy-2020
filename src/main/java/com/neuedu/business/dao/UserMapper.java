@@ -1,6 +1,7 @@
 package com.neuedu.business.dao;
 
 import com.neuedu.business.pojo.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -45,4 +46,20 @@ public interface UserMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(User record);
+
+    /**
+     * 判断用户名是否存在
+     * @Param,里面的值代表SQL语句占位符对应的名字
+     */
+    int countUsername(@Param("uname") String username);
+
+    /**
+     * 判断邮箱是否存在
+     */
+    int countEmail(@Param("email") String email);
+    /**
+     * 根基用户名密码查询用于信息
+     */
+    User findByUsernameAndPassword(@Param("username") String username,@Param("password") String password);
+
 }
